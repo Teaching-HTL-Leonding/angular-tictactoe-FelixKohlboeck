@@ -1,0 +1,18 @@
+<div class="board">
+  <div *ngFor="let row of cells; let y = index">
+    <div *ngFor="let cell of row; let x = index"
+         (click)="handleCellClick(x, y)"
+         [class]="CELL_CLASS">
+      {{ cell }}
+    </div>
+  </div>
+</div>
+
+<p>{{ message }}</p>
+
+<button (click)="resetGame()">Reset</button>
+<button (click)="toggleBotMode()">
+  {{ botMode ? 'Disable Bot' : 'Play Against Bot' }}
+</button>
+
+<p>Player X: {{ scores.X }} | Player O: {{ scores.O }}</p>
